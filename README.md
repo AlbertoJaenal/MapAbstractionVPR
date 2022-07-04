@@ -1,5 +1,5 @@
 # MapAbstractionVPR
-This repository corresponds to the work entitled "[Unsupervised appearance map abstraction for indoor Visual Place Recognition with mobile robots](https://ieeexplore.ieee.org/abstract/document/9808108/)", accepted in IEEE Robotics and Automation Letters. 
+This repository corresponds to the work entitled "[Unsupervised appearance map abstraction for indoor Visual Place Recognition with mobile robots](https://ieeexplore.ieee.org/abstract/document/9808108/)", published at IEEE Robotics and Automation Letters. 
 
 
 **Authors:** [Alberto Jaenal](https://mapir.isa.uma.es/mapirwebsite/?p=2022), [Francisco-Angel Moreno](https://mapir.isa.uma.es/mapirwebsite/?p=1721) and [Javier Gonzalez-Jimenez](https://mapir.isa.uma.es/mapirwebsite/?p=1536)
@@ -12,6 +12,7 @@ This repository corresponds to the work entitled "[Unsupervised appearance map a
 ## Cite
 If you use this work in your research, please cite:
 
+```
 @ARTICLE{jaenal2022unsupervised,
   author={Jaenal, Alberto and Moreno, Francisco-Angel and Gonzalez-Jimenez, Javier},
   journal={IEEE Robotics and Automation Letters}, 
@@ -21,6 +22,7 @@ If you use this work in your research, please cite:
   number={},
   pages={1-7},
   doi={10.1109/LRA.2022.3186768}}
+```
 
 ## Instructions
 
@@ -39,4 +41,4 @@ python run.py -p data/poses.txt -f data/feats-NetVLAD.npy -c 10
 
 This software employs built-in libs (see `requeriments.txt`), and has been tested with Python>=3.5 on Ubuntu 16.04, 18.04 and 20.04.
 
-The `geometry.py` script is inspired in [ProbFiltersVPR](https://github.com/mingu6/ProbFiltersVPR)0
+The `geometry.py` script is inspired in [ProbFiltersVPR](https://github.com/mingu6/ProbFiltersVPR).
