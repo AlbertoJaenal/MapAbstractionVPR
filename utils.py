@@ -21,11 +21,19 @@ def initialize(init_mode, number_of_clusters, poses, feats, repetitions=3):
         
     elif init_mode == 'kmeans':
         eval_dict = []
+        # Using cosine and sine to codify the pose for the initialization
+        new_poses = np.hstack([poses.as_numpy()[:, :2], 
+                               np.cos(poses.as_numpy()[:, -1].reshape([-1, 1])), 
+                               np.sin(poses.as_numpy()[:, -1].reshape([-1, 1]))])
         # Select the intialization with lower DB index
         for try_n in range(repetitions):
-            kmeans = KMeans(n_clusters=number_of_clusters, tol=1e-5, max_iter=10000, algorithm='full', n_init=50).fit(poses.as_numpy())
+            kmeans = KMeans(n_clusters=number_of_clusters, tol=1e-5, max_iter=10000, algorithm='full', n_init=50).fit(new_poses)
+            centers = np.hstack([kmeans.cluster_centers_[:, 0].reshape([-1, 1]),
+                                 kmeans.cluster_centers_[:, 1].reshape([-1, 1]),
+                                 np.arctan2(kmeans.cluster_centers_[:, 2], 
+                                            kmeans.cluster_centers_[:, 3]).reshape([-1, 1])])
             
-            db_index, indexes = compute_db_index(poses, kmeans.labels_, kmeans.cluster_centers_)
+            db_index, indexes = compute_db_index(poses, kmeans.labels_, centers)
             eval_dict.append((db_index, indexes, np.copy(kmeans.labels_)))
             
             

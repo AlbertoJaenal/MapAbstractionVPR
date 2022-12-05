@@ -83,9 +83,10 @@ if __name__ == "__main__":
     
     print(f'Saving at {outputpath}')
 
+    poses = combine(blob_pose_centers)
     with open(outputpath + ".pickle", "wb") as f:
         pickle.dump({
-            'pose_centers': combine(blob_pose_centers), 
+            'pose_centers': np.hstack([poses.t(), poses.R().as_euler('xyz')[:, -1].reshape([-1, 1])]),
             'feat_centers': np.array(blob_feat_centers, dtype=np.float32), 
             'parameters': np.array(blob_parameters, dtype=np.float32)
                       }, f)
