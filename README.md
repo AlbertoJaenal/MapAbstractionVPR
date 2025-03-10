@@ -26,12 +26,7 @@ If you use this work in your research, please cite:
 
 ## Instructions
 
-1. Donwload the demo data into the `data` folder:
-```
-mkdir data && cd data && wget http://ftp.uma.es/Mapir/MapAbstractionVPR/data/feats-ImRet.npy && wget http://ftp.uma.es/Mapir/MapAbstractionVPR/data/feats-NetVLAD.npy && wget http://ftp.uma.es/Mapir/MapAbstractionVPR/data/poses.txt
-```
-
-2. Run the map abstraction script
+Run the map abstraction script
 
 ```
 python run.py -p data/poses.txt -f data/feats-NetVLAD.npy -c 10
